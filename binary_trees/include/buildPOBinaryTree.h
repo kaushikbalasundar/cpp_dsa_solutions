@@ -1,0 +1,171 @@
+/*
+
+AUTHOR: Kaushik Balasundar (kbalasun@cs.cmu.edu)
+Description: Header file to create a pre-order build binary tree
+
+*/
+
+#include <iostream>
+#include <queue> 
+
+using namespace std;
+
+class node{
+
+    public:
+
+        int data; 
+        node* left;
+        node* right;
+
+    //Default constructor 
+    node() = default;
+    
+    //Constructor overloading
+    node(int d){
+
+            data = d;
+            left = NULL;
+            right = NULL;
+            
+        }
+
+    node* preOrderBuild(){
+
+        // Input: 1,2,4,-1,-1,5,7,-1,-1,-1,3,-1,6,-1,-1
+        cout << "Enter the elements of tree for preorder build. Use -1 for NULL" << endl;
+        int element;
+
+        cin >> element; 
+
+        if(element == -1){
+
+            return NULL;
+        }
+
+        node* n = new node(element);
+        n -> left = preOrderBuild();
+        n -> right = preOrderBuild();
+    return n;
+
+    }
+
+    node* levelOrderBuild(){
+
+    cout << "Enter root node" << endl; 
+    
+    //accept data part of root node as input 
+    int data; 
+    cin >> data;
+
+    //create root node 
+
+    node* root = new node(data); 
+    std::queue<node*> q; 
+
+    //push root into queue
+
+    q.push(root); 
+
+    //traverse queue
+
+    while(!q.empty()){
+
+    //Store first element of queue
+        node* front = q.front(); 
+
+    //pop front element 
+        q.pop(); 
+
+    //accept two inputs from user 
+
+        int left_n, right_n; 
+        cout << "Enter left and right children. Use -1 if NULL" << endl;
+        cin >> left_n >> right_n; 
+    
+        if(left_n != -1){
+
+            front -> left = new node(left_n);
+            q.push(front -> left);
+        }
+
+        if (right_n != -1){
+
+            front -> right = new node(right_n);
+            q.push(front -> right);
+        }
+
+        
+    }
+
+    return root;
+
+}
+
+
+    void levelOrderPrint(node* root){
+    
+    /*
+    NOTE: We create a queue data structure to perfrom BFS. 
+    The elements of the queue CANNOT be the data field (int) of the node, since we would lose 
+    access to the children of the node. The elements need to be either pointers to the node 
+    or the node itself. However, creating the node itself means that we would need to store 
+    copies of the node, which is not space efficient. Hence we use the queue elements as type
+    node*.
+    */
+
+    //creating a queue of type node*
+        std::queue<node*> levelorder; 
+    
+    //push root node inside queue and also a NULL pointer
+        levelorder.push(root);
+    //keeps track of levels
+        levelorder.push(NULL);
+
+        while(!levelorder.empty()){
+
+            //store node at the front of the list
+            node* current_node = levelorder.front();
+            levelorder.pop();
+
+            if(current_node == NULL){
+
+                //null indicates end of level, so print a new line
+
+                
+                cout << endl;
+                
+                if(levelorder.empty()){
+                    break;
+                }
+
+                else{
+                    levelorder.push(NULL);
+                }
+
+
+            }
+
+            else{
+
+                cout << current_node -> data << " ";
+                
+                if(current_node -> left){
+                    levelorder.push(current_node -> left);
+                    }
+
+                if(current_node -> right){
+                    levelorder.push(current_node -> right);
+                    }
+
+                }
+
+
+
+        }   
+
+    }
+
+};
+
+

@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/kaushik/"
+                ]
+            },
+            "includePath": [
+                "/opt/ros/melodic/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/**"
+            ],
+            "name": "dsa",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}
