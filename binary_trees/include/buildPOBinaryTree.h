@@ -166,6 +166,56 @@ class node{
 
     }
 
+    int height(node * root){
+
+        //base case
+        if(root == NULL){
+            return 0;
+        }
+
+        //recursive call on the height of the left sub-tree 
+        int h1 = height(root -> left);
+
+        //recursive call on the height of the right sub-tree
+        int h2 = height(root -> right);
+
+        //add 1 to the maximum of the heights of the left and right sub-trees
+
+        return 1+max(h1,h2); 
+
+
+    }
+
+
+    /*This implementation is however inefficient, it has O(N^2) time complexity because it visits each node twice.
+    The first time is a recursive call to determine the height and the second is to find if it is balanced. 
+
+    */
+    bool heightBalancedTree(node* root){
+
+        // base case - if you don't put this case, it will return a segmentation fault.
+        if(root == NULL){
+
+            return true;
+        }
+
+        int h1 = height(root -> left);
+        int h2 = height(root -> right);
+        
+        bool leftBalanced = heightBalancedTree(root -> left);
+        bool rightBalanced = heightBalancedTree(root -> right);
+                
+
+        if(leftBalanced && leftBalanced && (h1-h2) <=1){
+            return true;
+        }
+
+        else {
+            return false;
+    }
+    
+    }
+
 };
 
 
