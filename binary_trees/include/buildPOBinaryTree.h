@@ -216,6 +216,69 @@ class node{
     
     }
 
+// More efficient, since we make once recursive call and determine both height and if it is balanced at the same time. 
+
+    pair<int, bool> heightBalancedTreeOptimized(node* root){
+
+        pair<int, bool> p, left, right; 
+
+        //base case 
+
+        if(root == NULL){
+            p.first = 0;
+            p.second = true;
+            return p;
+        }
+
+        //recursive case 
+
+        left = heightBalancedTreeOptimized(root -> left);
+        right = heightBalancedTreeOptimized(root -> right); 
+
+        int height = max(left.first, right.first) + 1;
+        p.first = height;
+        
+        if(left.second && right.second && (left.first - right.first) <=1){  
+            p.second = true;
+        }
+        else{ 
+              p.second = false;
+        }
+
+        return p;
+
+    }
+
+    struct Pair {
+        
+        int inc; //Sum when the current element is included in the sum
+        int exc; //Sum when the current element is excluded from sum
+    };
+
+
+    pair <int, int> maxSubsetSum(node* root){
+
+        //base case 
+        pair <int, int> p, leftSum, rightSum;
+        if (root == NULL){
+            p.first = 0;
+            p.second = 0;
+            return p;
+            
+        }
+
+        //recursive case 
+
+        leftSum = maxSubsetSum(root -> left);
+        rightSum = maxSubsetSum(root -> right);
+
+        p.first = root-> data + leftSum.second + rightSum.second;  
+        p.second = max(leftSum.first, leftSum.second) + max(rightSum.first, rightSum.second);
+
+        return p;
+
+    }
+
 };
 
 
