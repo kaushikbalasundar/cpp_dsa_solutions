@@ -279,6 +279,44 @@ class node{
 
     }
 
+
+// Given a value K, print all nodes at distance K from the root 
+    void printAtLevelK(node* root, int k){
+        int temp = k;
+        //base case 
+        //cout << "value of K is: " << k << endl;
+        if(k<0){
+            //cout << "K < 0" << endl;
+            return;
+        }
+        
+        if(k == 0 && root == NULL){
+           //cout << "Data in the Kth level is does not exist " << endl; 
+           return;
+        }
+
+        else if (root == NULL && k!=0){
+            //cout << "Data in the Kth level is does not exist " << endl;
+            return;
+        }
+
+        else if(root != NULL && k==0){
+
+            cout << "Data in the Kth level is: " << root -> data << endl;
+            return;
+        }
+
+        //recursive case
+        else{
+        printAtLevelK(root -> left, k-1);
+        //out << "First recursive call done" << endl;
+        printAtLevelK(root -> right, temp-1);       
+        return;
+        }
+
+        
+    }
+
 };
 
 

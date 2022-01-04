@@ -32,6 +32,9 @@ int main(){
     int max_sum = max(p1.first, p1.second);
     cout << "The maximum subset sum is: " << max_sum << endl;
 
+    int k = 4;
+    n.printAtLevelK(root, k);
+
     return 0;
 
 }
