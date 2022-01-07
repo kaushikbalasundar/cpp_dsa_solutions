@@ -29,3 +29,4 @@
 * Using the list represenation, it is possible to traverse the list and get all the neighbours of a particular node. This is not possible with a matrix. Matrices also takes a larger amount of memory [O(*v^*2) order] - quadratic. Adjacency list however, takes linear memory, not quadratic - i.e. [O(*v+e*)], where *v* are vertices and e are edges.  
 * However, with a matrix, without having to traverse a list, we can check if there is a connection between two nodes. This operation will have O(1) time complexity, and O(n) in case of a list. 
 * Adjacancy lists however are easier to create and the operations typically involve checking neighbours more than their connections. Therefore, the adjacancy list represtation will be used throughout this repository. 
+* During the actual implementation, adjacency lists are created in a class that contains an array of lists, with each element in the array representing the associations between nodes. 
