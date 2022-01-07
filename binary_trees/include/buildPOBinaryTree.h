@@ -7,6 +7,7 @@ Description: Header file to create a pre-order build binary tree
 
 #include <iostream>
 #include <queue> 
+#include <map>
 
 using namespace std;
 
@@ -193,7 +194,7 @@ class node{
     */
     bool heightBalancedTree(node* root){
 
-        // base case - if you don't put this case, it will return a segmentation fault.
+        // base case - if you don't put this case, it will return a segmentation fault - recursion will not exit. 
         if(root == NULL){
 
             return true;
@@ -290,19 +291,14 @@ class node{
             return;
         }
         
-        if(k == 0 && root == NULL){
+        if(root == NULL){
            //cout << "Data in the Kth level is does not exist " << endl; 
            return;
         }
 
-        else if (root == NULL && k!=0){
-            //cout << "Data in the Kth level is does not exist " << endl;
-            return;
-        }
+        if(k==0){
 
-        else if(root != NULL && k==0){
-
-            cout << "Data in the Kth level is: " << root -> data << endl;
+            cout << root -> data << endl;
             return;
         }
 
@@ -315,6 +311,152 @@ class node{
         }
 
         
+    }
+
+
+    int distKfromTarget(node* root, int K, node* target){
+
+        // cout << "Target is: " << target -> data << endl;
+        //base case 
+        if(root == NULL){
+
+            return -1;
+        }
+        
+        if(root == target){
+
+            printAtLevelK(root, K);
+            return 0;
+            
+        }
+
+        int DL = distKfromTarget(root -> left, K, target);
+        if (DL != -1){
+
+            // if the node you are searching from is at a distance k from the target 
+            if (DL + 1 == K){
+                cout << root -> data << endl;   
+            }
+
+            else{
+
+                printAtLevelK(root, K-DL-2);
+                
+            }
+
+            return DL + 1;
+
+        }
+
+        int DR = distKfromTarget(root -> right, K, target);
+
+        if(DR != -1){
+
+            if (DR + 1 == K){
+                cout << root -> data << endl;   
+            }
+
+            else{
+
+                printAtLevelK(root, K-DR-2);
+                
+            }
+
+            return DR + 1; 
+
+
+        }
+
+    return -1;
+
+
+    }
+
+
+    void traverseTree(node* root, int d, map<int, vector<int>> &m){
+
+        //base case 
+        if (root == NULL){
+            return;
+        }
+
+        //recursive case 
+        m[d].push_back(root -> data);
+        traverseTree(root-> left, d-1, m);
+        traverseTree(root-> right, d+1, m);
+
+    }
+
+    //root is at a distance 0 from itself
+    //left child -> subtract one from distance 
+    //right child -> add one to distance 
+
+    void nodesAtSameVerticalHeight(node* root){
+
+        if (root == NULL){
+            return;
+        }
+
+        map<int, vector<int>> m; 
+        int d = 0;
+
+        traverseTree(root, d, m);
+        
+        //map traversal - each element of a map is a key value pair data structure
+        //first element accessed as .first() and second element as .second()
+        for (auto kv:m) {
+
+            for (auto nums: kv.second){
+
+                cout << nums << " "; 
+            }
+
+            cout << endl;
+        }
+
+    }
+
+    int sumDescendents(node* root){
+
+        //base case 
+
+        if (root == NULL){
+            return 0; 
+        }
+
+        if (root -> left == NULL and root -> right == NULL){
+            return root -> data;
+        }
+
+        //recursive case 
+        int SL = sumDescendents(root -> left);
+        int SR = sumDescendents(root-> right);
+        int temp = root -> data;
+        root -> data = SL + SR;
+        return temp + root -> data; 
+    }
+
+    int diameter(node* root){
+
+        //base case 
+
+        if(root == NULL){ return 0;}
+
+        //recursive cases 
+
+        // distance if diameter were through root 
+
+        int D1 = height(root -> left) + height(root -> right); 
+
+        // distance if diameter were not through the root 
+
+        //diameter through the left sub-tree: 
+
+        int D2 = diameter(root -> left);
+        int D3 = diameter(root -> right); 
+
+        return max(D1, max(D2, D3));
+
     }
 
 };
