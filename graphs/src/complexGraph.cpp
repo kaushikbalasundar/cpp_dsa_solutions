@@ -1,13 +1,13 @@
 /*
 AUTHOR: Kaushik Balasundar (kbalasun@cs.cmu.edu)
-Description: Header file to create a pre-order build binary tree
+Description: Complex graph of cities I have lived in my life and the transitions between them
 */
 
 #include <iostream>
 #include <string>
 #include <list>
 #include <vector>
-#include <unordered_map>
+#include <map>
 using namespace std;
 
 class Node {
@@ -18,7 +18,7 @@ public:
     list<string> neighbours;
 
     Node(string city){
-        this -> city = city;
+        city = city;
     }
 
 };
@@ -27,7 +27,7 @@ class Graph{
 
     //it needs to contain two elements, one for the name and the other for the address of that node 
 
-    unordered_map<string, Node*> m;
+    map<string, Node*> m;
 
     public:
 
@@ -60,7 +60,7 @@ class Graph{
         for (auto cityPair : m){
 
             auto city = cityPair.first;
-            cout << city << "---> "; 
+            cout << city << " ---> "; 
             Node * node = cityPair.second;
             for (auto nbr : node -> neighbours){
                 cout << nbr << " ";
@@ -74,11 +74,11 @@ class Graph{
 
 int main(){
 
-    cout << "Creating complex graph: " << endl;
+    cout << "Cities I've lived in: " << endl;
     cout << endl;
-    vector<string> cities = {"Dubai", "Pittsburgh", "Bengaluru", "Chennai", "Baden"};
+    vector<string> cities = {"Dubai", "Pittsburgh", "Bengaluru", "Chennai(Birth City)", "Baden"};
     Graph g(cities);
-    g.addEdge("Chennai", "Bengaluru", false);
+    g.addEdge("Chennai(Birth City)", "Bengaluru", false);
     g.addEdge("Bengaluru", "Baden"); 
     g.addEdge("Bengaluru", "Dubai");
     g.addEdge("Dubai","Pittsburgh");

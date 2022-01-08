@@ -24,7 +24,7 @@
 
 * An alternative way to do this is by using adjacency lists as shown in the image below:
 
-  <img src="https://gateoverflow.in/?qa=blob&qa_blobid=14901742589732224722" alt="Cormen - GATE Overflow" style="zoom:135%;" />
+  <img src="https://gateoverflow.in/?qa=blob&qa_blobid=14901742589732224722" alt="Cormen - GATE Overflow" style="zoom:200%;" />
 
 * Using the list represenation, it is possible to traverse the list and get all the neighbours of a particular node. This is not possible with a matrix. Matrices also takes a larger amount of memory [O(*v^*2) order] - quadratic. Adjacency list however, takes linear memory, not quadratic - i.e. [O(*v+e*)], where *v* are vertices and e are edges.  
 
