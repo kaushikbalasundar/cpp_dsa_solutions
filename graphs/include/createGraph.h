@@ -1,3 +1,8 @@
+/*
+AUTHOR: Kaushik Balasundar (kbalasun@cs.cmu.edu)
+Description: Header file to create a pre-order build binary tree
+*/
+
 #include <list> //Linked lists from STL 
 #include <iostream> 
 using namespace std;

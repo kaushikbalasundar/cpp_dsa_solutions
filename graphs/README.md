@@ -30,3 +30,24 @@
 * However, with a matrix, without having to traverse a list, we can check if there is a connection between two nodes. This operation will have O(1) time complexity, and O(n) in case of a list. 
 * Adjacancy lists however are easier to create and the operations typically involve checking neighbours more than their connections. Therefore, the adjacancy list represtation will be used throughout this repository. 
 * During the actual implementation, adjacency lists are created in a class that contains an array of lists, with each element in the array representing the associations between nodes. We can use the STL's <list> to include doubly linked lists. So each element of the array will be a doubly linked list. 
+
+## Graph Traversals
+
+* The process of visiting all the nodes in a graph is called graph traversal. We can do this in a bread-first manner or a depth-first manner. 
+
+## Breadth-First Search (BFS)
+
+* You can traverse a graph in a breadth-first or a depth-first manner. The illustration below depicts this traversal: 
+
+  <img src="https://www.guru99.com/images/1/020820_0543_BreadthFirs1.png" alt="Breadth First Search (BFS) Algorithm with EXAMPLE" style="zoom:67%;" />
+
+* Each time you visit a node, push it into a queue and mark it as visited in a seperate array. Then pop out the first node, and push the neighbours of that node into the queue, and mark them as visited. Visit, the next element in the queue, print it, pop it out and push its neighbours in the queue. Do this until all nodes are visited. This is the priniple behind the implementation of BFS. The nature of BFS is **iterative.** 
+
+## Depth-First Search (DFS)
+
+* Unlike, BFS, DFS is **recursive** in nature. Each time a node is visited, it gets marked as visited, and makes a recursive call on one of its unvisited neighbours. When there are no more unvisited neighbours the function returns. The image below shows the working of DFS and compares it to BFS: 
+
+  <img src="https://qph.fs.quoracdn.net/main-qimg-7b145b86b4bca7d619028bc160f8332a" alt="What are some examples of depth or breadth first search applied to real  life? - Quora" style="zoom: 40%;" />
+
+* Both BFS and DFS have linear time complexity. If E is the number of edges and V are the number of vertices then the time complexity is given by: **O(V+E)**
+
