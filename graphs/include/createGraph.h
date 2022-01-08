@@ -21,7 +21,7 @@ public:
     //constructor 
     Graph(int v){
      V = v;
-     //create an array of linked list dynamically according to size user specifies    
+     //create an array of linked list dynamically according to the size the user specifies    
      l = new list<int>[V];
     }
 

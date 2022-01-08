@@ -27,15 +27,20 @@
   <img src="https://gateoverflow.in/?qa=blob&qa_blobid=14901742589732224722" alt="Cormen - GATE Overflow" style="zoom:135%;" />
 
 * Using the list represenation, it is possible to traverse the list and get all the neighbours of a particular node. This is not possible with a matrix. Matrices also takes a larger amount of memory [O(*v^*2) order] - quadratic. Adjacency list however, takes linear memory, not quadratic - i.e. [O(*v+e*)], where *v* are vertices and e are edges.  
+
 * However, with a matrix, without having to traverse a list, we can check if there is a connection between two nodes. This operation will have O(1) time complexity, and O(n) in case of a list. 
+
 * Adjacancy lists however are easier to create and the operations typically involve checking neighbours more than their connections. Therefore, the adjacancy list represtation will be used throughout this repository. 
+
 * During the actual implementation, adjacency lists are created in a class that contains an array of lists, with each element in the array representing the associations between nodes. We can use the STL's <list> to include doubly linked lists. So each element of the array will be a doubly linked list. 
+
+* Elements of a graph can also be complex, and an example of this is shown in complexGraph.cpp, where a Node() class is used for the creation of nodes. 
 
 ## Graph Traversals
 
 * The process of visiting all the nodes in a graph is called graph traversal. We can do this in a bread-first manner or a depth-first manner. 
 
-## Breadth-First Search (BFS)
+### Breadth-First Search (BFS)
 
 * You can traverse a graph in a breadth-first or a depth-first manner. The illustration below depicts this traversal: 
 
@@ -43,7 +48,7 @@
 
 * Each time you visit a node, push it into a queue and mark it as visited in a seperate array. Then pop out the first node, and push the neighbours of that node into the queue, and mark them as visited. Visit, the next element in the queue, print it, pop it out and push its neighbours in the queue. Do this until all nodes are visited. This is the priniple behind the implementation of BFS. The nature of BFS is **iterative.** 
 
-## Depth-First Search (DFS)
+### Depth-First Search (DFS)
 
 * Unlike, BFS, DFS is **recursive** in nature. Each time a node is visited, it gets marked as visited, and makes a recursive call on one of its unvisited neighbours. When there are no more unvisited neighbours the function returns. The image below shows the working of DFS and compares it to BFS: 
 
