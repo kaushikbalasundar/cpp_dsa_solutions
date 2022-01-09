@@ -10,12 +10,13 @@ using namespace std;
 
 int main(){
     Graph g(6);
-    cout << "here";
+    g.createEdge(0,1);
     g.createEdge(1,2);
     g.createEdge(1,3);
     g.createEdge(2,4);
     g.createEdge(2,5);
-    g.printAdjList();
+    //g.printAdjList();
+    g.bfs(0);
 
-    // return 0; 
+    return 0; 
 }
