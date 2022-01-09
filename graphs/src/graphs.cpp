@@ -16,7 +16,7 @@ int main(){
     g.createEdge(2,4);
     g.createEdge(2,5);
     //g.printAdjList();
-    g.bfs(0);
+    g.bfs(0,5);
 
     return 0; 
 }

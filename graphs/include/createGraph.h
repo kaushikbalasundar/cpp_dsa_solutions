@@ -52,7 +52,7 @@ public:
 
         }
 
-    void bfs(int source){
+    void bfs(int source, int dest=-1){
 
         //create a queue 
         queue <int> q; 
@@ -60,11 +60,21 @@ public:
         //create a visited array of booleans initialized with 0s
         bool *visited = new bool[V]{0}; 
 
+        //create a parent array to store the parents of each node 
+        int *parent = new int[V]{-1}; 
+
+        //create a distance array to track the distance from source 
+        int *dist = new int[V]{0}; 
+        
         //push the first element of the graph into the queue 
         q.push(source);
 
         //then mark it as being visited 
         visited[source] = true;
+
+        //update the parent and distance 
+        parent[source] = source;
+        dist[source] = 0;
 
         //iterate through the queue and pop out the first element and print it 
         while(!q.empty()){
@@ -81,10 +91,36 @@ public:
                     visited[nbr] = true;
                     //push to queue
                     q.push(nbr); 
+
+                    //update parent 
+                    parent[nbr] = f;
+
+                    //update distance
+                    dist[nbr] = dist[f] + 1;
                 }
             }
 
         }
+
+        for (int i=0; i<=V; i++){
+                cout << "The distance of " << i << "is :" << dist[i] <<endl; 
+            }
+
+        int temp = dest;
+        if(dest!=-1){
+
+            cout << "Shortest Path: " << temp << " ";
+
+            while(temp!=source){
+
+                temp = parent[temp];
+                cout << temp << " ";
+            }
+
+            cout << source << " "; 
+        } 
+
+        
 
         return;
 
