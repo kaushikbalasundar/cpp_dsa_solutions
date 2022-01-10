@@ -13,10 +13,13 @@ int main(){
     g.createEdge(0,1);
     g.createEdge(1,2);
     g.createEdge(1,3);
+    g.createEdge(3,2);
     g.createEdge(2,4);
     g.createEdge(2,5);
     //g.printAdjList();
-    g.bfs(0,5);
-
+    // g.bfs(0,5);
+    cout << endl;
+    g.dfs(0);
+    g.contains_cycle(0);
     return 0; 
 }

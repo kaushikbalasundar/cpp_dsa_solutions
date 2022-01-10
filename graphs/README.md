@@ -10,7 +10,8 @@
   * **Unweighted graph:** No weight or value attached to the edges of the graphs. 
   * **Directed graphs:** When the edges are represented by arrows that indicate the possible directions of traveral, then we call those as directed graphs. 
   * **Undirected graphs: **When there is no directionality associated with the edges of the graphs, then the resulting graph is called an undirected graph. 
-
+  * Graphs that do not contain a cycle are called trees. 
+  
   ## Storing Graphs
 
   * It is possible to store graphs using two popular methods: 
