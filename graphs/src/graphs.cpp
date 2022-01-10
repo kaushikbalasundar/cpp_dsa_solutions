@@ -16,6 +16,7 @@ int main(){
     g.createEdge(3,2);
     g.createEdge(2,4);
     cout << endl;
+    
     g.dfs(0);
     return 0; 
 }
