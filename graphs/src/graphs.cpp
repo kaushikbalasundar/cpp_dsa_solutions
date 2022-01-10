@@ -20,6 +20,5 @@ int main(){
     // g.bfs(0,5);
     cout << endl;
     g.dfs(0);
-    g.contains_cycle(0);
     return 0; 
 }
