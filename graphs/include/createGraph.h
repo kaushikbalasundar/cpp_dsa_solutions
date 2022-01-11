@@ -150,51 +150,6 @@ public:
             dfs_helper(source, visited);
 
         }
-
-        bool contains_cycle_helper(int source, bool* visited, int* parent){
-
-            for (int nbr: l[source]){
-                parent[nbr] = source;
-                if(visited[nbr] and nbr==parent[nbr]){
-                    return true;
-                }
-
-                else{
-
-                    visited[nbr] = true;
-                    contains_cycle_helper(nbr, visited, parent);
-                    return false; 
-                }
-         
-            }
-        return false;            
-
-        }
-
-        void contains_cycle(int source){
-
-            // Graph g1(6); 
-
-            // for (int i=0; i<edges.size(); i++){
-                
-            //     pair <int, int> p = edges.at(i);
-            //     g1.createEdge(p.first(), p.second());
-                
-            // }
-            bool* visited = new bool [V]{0};
-            int* parent = new int[V]{-1};
-            parent[source] = -1;
-            visited[source] = true;
-            bool result = contains_cycle_helper(source, visited, parent);
-            if(result){
-                cout << "True" << endl;
-            }
-            else{
-                cout<< "False" << endl;
-            }
-
-            
-}
     
         
 };
