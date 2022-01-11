@@ -57,3 +57,14 @@
 
 * Both BFS and DFS have linear time complexity. If E is the number of edges and V are the number of vertices then the time complexity is given by: **O(V+E)**
 
+## Dijkstra's Algorithm 
+
+* This is an algorithm used to get the shortest path from a source to a destination in a weighted graph. 
+* It maintains a distance array, and a set that continuously gets updated each time a new node is visited. 
+* Mark all distances to the other nodes to be inifity initially, and to the source node as 0. 
+* Start from source, and visit one of its neighbours. Update the distance if the previously held distance is more than the current distance. Update the set with the node and the new distance. Do this process until all neighbours of the current node are visited. 
+* Once done, pick the first element in the set (set automatically stores elements in sorted order). So basically, you're picking the node with the least distance from the source, pop that out and repeat the procedure.
+* When you pop something out of the list, you're in a sense finalizing that distance and you don't explore that node again. 
+* Traverse all the neighbours of this new node, and if new distance is less than previous distance, then update the distance, and update the set. 
+* The update step in the set happens thrugh a deletion and an insertion since there is not way to update the element in sets in C++. 
+* 
