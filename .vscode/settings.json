@@ -10,5 +10,8 @@
         "vector": "cpp",
         "iostream": "cpp",
         "new": "cpp"
-    }
+    },
+    "python.analysis.extraPaths": [
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
 }
