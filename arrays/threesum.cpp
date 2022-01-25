@@ -25,12 +25,13 @@ vector< vector<int> > triplets(vector <int> arr, int targetSum){
 
         int j = i+1; //one element after i 
         int k = n-1; //last element 
-        cout << "i: " << i << " j: " << j << " k: " << k << endl;
+        
         while(j<k){ //while the pointers dont meet each other 
+            currentSum = arr.at(i);
             
             currentSum += arr.at(j);
             currentSum += arr.at(k);
-            cout << currentSum << endl;
+        
 
             if(currentSum == targetSum){
 
@@ -39,7 +40,8 @@ vector< vector<int> > triplets(vector <int> arr, int targetSum){
                 triplet.push_back(arr.at(k));
                 tripletsSet.push_back(triplet);
                 
-                j++; 
+                j++;
+                k--; 
 
             }
 
