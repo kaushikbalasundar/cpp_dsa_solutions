@@ -5,7 +5,7 @@
 #include<unordered_set> 
 
 using namespace std; 
-unordered_set<int> s; 
+unordered_set<int> s; //lookup on unordered set is O(n)
 
 void twosum(int sum, vector<int> arr){
 
