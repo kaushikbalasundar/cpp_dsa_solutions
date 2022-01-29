@@ -51,21 +51,16 @@ vector<int> subArraySort(vector<int> arr){
         //find index at which the smallest and largest element need to be placed
         cout << "Smallest: "<<smallest;
         cout << "Largest : " << largest;
-        int j = 0; 
-        int k = arr.size()-1;
+
         int left_idx = 0;
-        int right_idx = 0;
-        while(j<k){
-            if(smallest < arr[j]){
-            left_idx = j;}
-            j++;
-
-            if(largest > arr[k]){
-
-                right_idx = k;
-            }
-            k++;
-        }
+        int right_idx = arr.size()-1;
+        while(smallest >= arr[left_idx]){
+            
+            left_idx ++;}
+            
+        while(largest <= arr[right_idx]){
+                    
+                    right_idx--;}
 
         //How do you slice a vector from index x to index y?: easiest way is to use the copy function 
 
