@@ -1,16 +1,5 @@
 {
-    "ros.distro": "melodic",
-    "python.autoComplete.extraPaths": [
-        "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ],
     "files.associations": {
-        "queue": "cpp",
-        "deque": "cpp",
-        "string": "cpp",
-        "vector": "cpp",
-        "iostream": "cpp",
-        "new": "cpp",
-        "ostream": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -31,9 +20,10 @@
         "complex": "cpp",
         "condition_variable": "cpp",
         "cstdint": "cpp",
+        "deque": "cpp",
         "list": "cpp",
         "unordered_map": "cpp",
-        "unordered_set": "cpp",
+        "vector": "cpp",
         "exception": "cpp",
         "algorithm": "cpp",
         "functional": "cpp",
@@ -46,6 +36,7 @@
         "random": "cpp",
         "ratio": "cpp",
         "set": "cpp",
+        "string": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
         "tuple": "cpp",
@@ -55,9 +46,12 @@
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "iosfwd": "cpp",
+        "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
         "mutex": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
@@ -66,8 +60,5 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp"
-    },
-    "python.analysis.extraPaths": [
-        "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ]
+    }
 }

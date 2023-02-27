@@ -9,7 +9,7 @@ using namespace std;
 
 
 int main(){
-    Graph g(6);
+    Graph g(5);
     g.createEdge(0,1);
     g.createEdge(1,2);
     g.createEdge(1,3);
@@ -18,6 +18,6 @@ int main(){
     cout << endl;
     g.printAdjList();
     
-    g.dfs(0);
+    // g.dfs(0);
     return 0; 
 }
